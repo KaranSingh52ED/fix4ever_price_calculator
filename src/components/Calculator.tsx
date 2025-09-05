@@ -71,7 +71,7 @@ export default function Calculator() {
         <div className="text-center space-y-2 sm:space-y-3">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3">
             <img
-              src="/src/assets/fix4ever_logo.jpg"
+              src="https://res.cloudinary.com/dd8zhmj7u/image/upload/v1753045196/ssw12aalzfgrc50kyked.jpg"
               alt="Fix4Ever"
               className="w-10 h-10 sm:w-12 sm:h-12 rounded-full"
             />
