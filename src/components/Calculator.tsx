@@ -133,7 +133,7 @@ export default function Calculator() {
                       <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center text-white text-xs font-bold">
                         P
                       </div>
-                      Parameter P
+                      Service charges
                     </Label>
                     <div className="relative">
                       <IndianRupee className="absolute left-2.5 top-1/2 transform -translate-y-1/2 w-3 h-3 text-muted-foreground" />
@@ -150,10 +150,6 @@ export default function Calculator() {
                         className="text-sm sm:text-base font-medium pl-7 h-9 sm:h-10 border-2 focus:border-primary transition-colors"
                       />
                     </div>
-                    <p className="text-xs text-muted-foreground flex items-center gap-1.5">
-                      <Percent className="w-2.5 h-2.5" />
-                      Base amount (20% surcharge added automatically)
-                    </p>
                   </div>
                 </div>
 
@@ -166,7 +162,7 @@ export default function Calculator() {
                       <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-lg bg-gradient-to-r from-green-500 to-green-600 flex items-center justify-center text-white text-xs font-bold">
                         C
                       </div>
-                      Parameter C
+                      Component Charges
                     </Label>
                     <div className="relative">
                       <IndianRupee className="absolute left-2.5 top-1/2 transform -translate-y-1/2 w-3 h-3 text-muted-foreground" />
@@ -183,38 +179,7 @@ export default function Calculator() {
                         className="text-sm sm:text-base font-medium pl-7 h-9 sm:h-10 border-2 focus:border-primary transition-colors"
                       />
                     </div>
-                    <p className="text-xs text-muted-foreground flex items-center gap-1.5">
-                      <Percent className="w-2.5 h-2.5" />
-                      Additional charge (20% surcharge added automatically)
-                    </p>
                   </div>
-                </div>
-              </div>
-
-              <div className="space-y-1.5 sm:space-y-2">
-                <div className="space-y-1.5">
-                  <Label className="text-xs sm:text-sm font-semibold flex items-center gap-2">
-                    <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-lg bg-gradient-to-r from-purple-500 to-purple-600 flex items-center justify-center text-white text-xs font-bold">
-                      M
-                    </div>
-                    Parameter M (Fixed)
-                  </Label>
-                  <div className="flex items-center gap-2 sm:gap-3 p-2.5 sm:p-3 bg-gradient-to-r from-muted/50 to-muted/30 rounded-lg border-2 border-dashed border-muted-foreground/20">
-                    <IndianRupee className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary" />
-                    <span className="text-lg sm:text-xl font-bold text-primary">
-                      ₹{M}.00
-                    </span>
-                    <Badge
-                      variant="secondary"
-                      className="ml-auto px-2 py-0.5 text-xs"
-                    >
-                      <Clock className="w-2.5 h-2.5 mr-1" />
-                      Fixed
-                    </Badge>
-                  </div>
-                  <p className="text-xs text-muted-foreground">
-                    Fixed maintenance charge (non-negotiable)
-                  </p>
                 </div>
               </div>
             </div>
@@ -253,9 +218,6 @@ export default function Calculator() {
                       <CheckCircle className="w-4 h-4 text-green-600 dark:text-green-400" />
                     </div>
                     <div>
-                      <h3 className="text-sm sm:text-base font-semibold text-green-700 dark:text-green-300">
-                        Calculation Complete
-                      </h3>
                       <p className="text-xs text-green-600 dark:text-green-400">
                         Total amount calculated successfully
                       </p>
@@ -282,87 +244,6 @@ export default function Calculator() {
                     Final Total Amount
                   </p>
                 </div>
-
-                {/* Breakdown */}
-                {showBreakdown && (
-                  <div className="space-y-2 sm:space-y-3">
-                    <Separator />
-                    <div className="space-y-1.5 sm:space-y-2">
-                      <h4 className="text-xs sm:text-sm font-semibold text-green-700 dark:text-green-300 flex items-center gap-1.5">
-                        <BarChart3 className="w-3.5 h-3.5" />
-                        Detailed Breakdown
-                      </h4>
-
-                      <div className="grid gap-1.5 sm:gap-2">
-                        <div className="flex justify-between items-center p-2 bg-white/50 dark:bg-slate-800/50 rounded-lg">
-                          <div className="flex items-center gap-1.5">
-                            <div className="w-4 h-4 rounded bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center text-xs font-bold text-blue-600 dark:text-blue-400">
-                              P
-                            </div>
-                            <span className="text-xs font-medium">
-                              P + 20% surcharge:
-                            </span>
-                          </div>
-                          <span className="font-semibold text-xs sm:text-sm">
-                            ₹
-                            {pWithSurcharge.toLocaleString("en-IN", {
-                              minimumFractionDigits: 2,
-                            })}
-                          </span>
-                        </div>
-
-                        <div className="flex justify-between items-center p-2 bg-white/50 dark:bg-slate-800/50 rounded-lg">
-                          <div className="flex items-center gap-1.5">
-                            <div className="w-4 h-4 rounded bg-green-100 dark:bg-green-900/50 flex items-center justify-center text-xs font-bold text-green-600 dark:text-green-400">
-                              C
-                            </div>
-                            <span className="text-xs font-medium">
-                              C + 20% surcharge:
-                            </span>
-                          </div>
-                          <span className="font-semibold text-xs sm:text-sm">
-                            ₹
-                            {cWithSurcharge.toLocaleString("en-IN", {
-                              minimumFractionDigits: 2,
-                            })}
-                          </span>
-                        </div>
-
-                        <div className="flex justify-between items-center p-2 bg-white/50 dark:bg-slate-800/50 rounded-lg">
-                          <div className="flex items-center gap-1.5">
-                            <div className="w-4 h-4 rounded bg-purple-100 dark:bg-purple-900/50 flex items-center justify-center text-xs font-bold text-purple-600 dark:text-purple-400">
-                              M
-                            </div>
-                            <span className="text-xs font-medium">
-                              Fixed charge (M):
-                            </span>
-                          </div>
-                          <span className="font-semibold text-xs sm:text-sm">
-                            ₹{M}.00
-                          </span>
-                        </div>
-
-                        <Separator className="my-1.5" />
-
-                        <div className="flex justify-between items-center p-2.5 sm:p-3 bg-gradient-to-r from-primary/10 to-blue-600/10 dark:from-primary/20 dark:to-blue-600/20 rounded-lg border-2 border-primary/20">
-                          <div className="flex items-center gap-1.5">
-                            <Zap className="w-3.5 h-3.5 text-primary" />
-                            <span className="font-semibold text-xs sm:text-sm">
-                              Total Amount:
-                            </span>
-                          </div>
-                          <span className="font-bold text-sm sm:text-base md:text-lg text-primary">
-                            ₹
-                            {result.toLocaleString("en-IN", {
-                              minimumFractionDigits: 2,
-                              maximumFractionDigits: 2,
-                            })}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )}
               </div>
             )}
           </CardContent>
