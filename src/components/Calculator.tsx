@@ -15,14 +15,11 @@ import {
   IndianRupee,
   TrendingUp,
   Sparkles,
-  Zap,
   CheckCircle,
   ArrowRight,
   RefreshCw,
-  Percent,
   Target,
   BarChart3,
-  Clock,
 } from "lucide-react";
 
 export default function Calculator() {
@@ -31,12 +28,12 @@ export default function Calculator() {
   const M = 200;
   const [result, setResult] = useState<number | null>(null);
   const [isCalculating, setIsCalculating] = useState(false);
-  const [showBreakdown, setShowBreakdown] = useState(false);
+
   const [animationKey, setAnimationKey] = useState(0);
 
   function calculate() {
     setIsCalculating(true);
-    setShowBreakdown(false);
+
     setAnimationKey((prev) => prev + 1);
 
     setTimeout(() => {
@@ -45,7 +42,6 @@ export default function Calculator() {
       const output = pValue + pValue * 0.2 + cValue + cValue * 0.2 + M;
       setResult(output);
       setIsCalculating(false);
-      setShowBreakdown(true);
     }, 800);
   }
 
@@ -53,16 +49,12 @@ export default function Calculator() {
     setP("");
     setC("");
     setResult(null);
-    setShowBreakdown(false);
+
     setAnimationKey((prev) => prev + 1);
   }
 
   const canCalculate =
     (p !== "" && parseFloat(p) > 0) || (c !== "" && parseFloat(c) > 0);
-  const pValue = parseFloat(p) || 0;
-  const cValue = parseFloat(c) || 0;
-  const pWithSurcharge = pValue * 1.2;
-  const cWithSurcharge = cValue * 1.2;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 flex items-center justify-center p-4">
